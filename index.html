@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Diary</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/work.css" />
+  </head>
+
+  <body>
+    <!-- ===============================================
+     フレックスの左にロゴ、右にハンバーガーメニュー
+     fixed親ボックスでヘッダーを作成。子もfixedで固定。
+     （ちなみに逆にするとfixedが飛び出すのでBOXの配置がおかしい）
+     =============================================== -->
+    <!-- フレックスで並べる（fixed） -->
+    <header id="header_area">
+      <!-- ロゴ -->
+      <div class="header_logo">
+        <a href="#"><img src="img/logo.svg" alt="Sneakers Logo" /></a>
+      </div>
+
+      <!-- ハンバーガーメニュー -->
+      <div id="hamburger-btn" class="hamburger_menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <!-- オーバーレイ -->
+      <div id="mask"></div>
+
+      <!-- ナビゲーションメニュー -->
+      <nav id="g-nav">
+        <ul class="nav-list">
+          <li><a href="#pickup">PICK UP</a></li>
+          <li><a href="#feature">FEATURE</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <ul class="sns-list">
+          <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
+          <li>
+            <a href="https://www.facebook.com/" target="_blank">facebook</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="wrapper">
+      <main></main>
+    </div>
+
+    <!-- javascript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
