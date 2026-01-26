@@ -47,6 +47,57 @@
   display: none; /* 初期状態では非表示 */
 }
 
+/* ナビゲーションメニュー  */
+#g-nav {
+  position: fixed;
+  top: 0;
+  left: 0; /*debgu*/
+  width: 30rem;
+  height: 100vh;
+  background-color: rgb(10, 9, 9);
+  z-index: 1000; /* ナビゲーションが他の要素より前に表示されるようにする */
+  transition: left 0.3s ease;
+}
+
+/* aタグ */
+.nav_link {
+  border-top: 0.1rem solid white;
+
+  display: block;
+
+  /* 左に空間をあけて、そこから線と文字を始める */
+  margin: 7rem 2rem 0 2rem;
+  padding: 3rem 0 0 0;
+
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+/* 3行目のみ下線あり */
+.nav_link:last-of-type {
+  border-bottom: 0.1rem solid white;
+}
+
+.sns-list {
+  margin-top: 4rem;
+}
+
+/* ナビと同様のスタイル */
+.sns-link {
+  display: block;
+  color: white;
+  font-size: 1.8rem;
+
+  margin-left: 2rem;
+  padding: 2rem 0 0 0;
+}
+
+#g-nav.open {
+  left: 0; /* openクラスが付与されたら表示 */
+}
+
 /* ハンバーガーが押下されてオーバーレイが表示 */
 #mask.open {
   display: block; /* openクラスが付与されたら表示 */
@@ -110,15 +161,19 @@
 
 /* ┌─────────────────────────────────────────┐
    │ 5. Contact (お問い合わせ)                │
-   │ Layout: Flex (PC) -> Column (SP)        │
+   │ Layout: Flex (PC) -> Column (SP)        
    │ Style: 背景黒(#333), 文字白              │
    └─────────────────────────────────────────┘ */
 
 /* ┌─────────────────────────────────────────┐
    │ 6. Footer (フッター)                     │
-   │ Copyrightのみ, 中央寄せ                  │
+   │ Copyrightのみ, 中央寄せ                  
    └─────────────────────────────────────────┘ */
 
 /* ┌─────────────────────────────────────────┐
    │ aaaaaaaaaa                        │
+   └─────────────────────────────────────────┘ */
+/* ┌─────────────────────────────────────────┐
+   │ aaaaaaaaaa
+   │  bbbbb                       
    └─────────────────────────────────────────┘ */
