@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Diary</title>
+    <title>Sneakers</title>
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/work.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
     />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/work.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   </head>
@@ -30,7 +30,7 @@
       </h1>
 
       <!-- ハンバーガーメニュー -->
-      <div id="hamburger-btn" class="hamburger_menu">
+      <div id="hamburger_btn" class="hamburger_menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -40,26 +40,26 @@
       <div id="mask"></div>
 
       <!-- ナビゲーションメニュー -->
-      <nav id="g-nav">
+      <nav id="g_nav">
         <ul class="nav_list">
           <li><a class="nav_link" href="#pickup">PICK UP</a></li>
           <li><a class="nav_link" href="#feature">FEATURE</a></li>
           <li><a class="nav_link" href="#contact">CONTACT</a></li>
         </ul>
-        <ul class="sns-list">
+        <ul class="sns_list">
           <li>
-            <a class="sns-link" href="https://twitter.com/" target="_blank"
+            <a class="sns_link" href="https://twitter.com/" target="_blank"
               >Twitter</a
             >
           </li>
           <li>
-            <a class="sns-link" href="https://www.facebook.com/" target="_blank"
+            <a class="sns_link" href="https://www.facebook.com/" target="_blank"
               >facebook</a
             >
           </li>
           <li>
             <a
-              class="sns-link"
+              class="sns_link"
               href="https://www.instagram.com/"
               target="_blank"
               >Instagram</a
@@ -71,17 +71,16 @@
 
     <main>
       <!-- ===============================================
-      2. Main Visual (背景動画)                │
+         Main Visual (背景動画)                │
          user: videoタグ, object-fit: cover       │      
        =============================================== -->
-      <section class="main_visual_area">
+      <div class="main_visual_area">
         <video class="background_video" autoplay muted loop playsinline>
           <source src="img/video.mp4" type="video/mp4" />
         </video>
-      </section>
-
+      </div>
       <!-- ===============================================
-        3. Pickup (無限スライダー)               │
+        Pickup (無限スライダー)               │
         Lib: Slick.js (centerMode: true)        │
         9枚の画像（pickup1.jpg ～ pickup9.jpg）
         自動スライド表示　画像には代替テキスト（alt属性）を設定
@@ -101,7 +100,7 @@
         </div>
       </section>
       <!-- ===============================================
-       4. Feature (記事一覧)                    │      │
+       Feature (記事一覧)                    │      │
        Effect: Scroll FadeIn (opacity:0->1)    │
       └─────────────────────────────────────────┘-->
       <!-- 
@@ -128,8 +127,8 @@
         <h2 class="feature_title">FEATURE</h2>
         <div class="feature_grid">
           <!-- 1枚目 -->
-          <article class="feature_item">
-            <img class="featur_image" src="img/feature1.jpg" alt="" />
+          <div class="feature_item">
+            <img class="feature_image" src="img/feature1.jpg" alt="" />
             <div class="feature_content">
               <p class="feature_cat">category</p>
               <p class="feature_text">
@@ -137,10 +136,9 @@
               </p>
               <p class="feature_date">XXXX.XX.XX</p>
             </div>
-          </article>
-
-          <article class="feature_item">
-            <img src="img/feature2.jpg" alt="" />
+          </div>
+          <div class="feature_item">
+            <img class="feature_image" src="img/feature2.jpg" alt="" />
             <div class="feature_content">
               <p class="feature_cat">category</p>
               <p class="feature_text">
@@ -148,10 +146,9 @@
               </p>
               <p class="feature_date">XXXX.XX.XX</p>
             </div>
-          </article>
-
-          <article class="feature_item">
-            <img src="img/feature3.jpg" alt="" />
+          </div>
+          <div class="feature_item">
+            <img class="feature_image" src="img/feature3.jpg" alt="" />
             <div class="feature_content">
               <p class="feature_cat">category</p>
               <p class="feature_text">
@@ -159,11 +156,10 @@
               </p>
               <p class="feature_date">XXXX.XX.XX</p>
             </div>
+          </div>
 
-          </article>
-
-          <article class="feature_item">
-            <img src="img/feature4.jpg" alt="" />
+          <div class="feature_item">
+            <img class="feature_image" src="img/feature4.jpg" alt="" />
             <div class="feature_content">
               <p class="feature_cat">category</p>
               <p class="feature_text">
@@ -171,11 +167,9 @@
               </p>
               <p class="feature_date">XXXX.XX.XX</p>
             </div>
-
-          </article>
-
-          <article class="feature_item">
-            <img src="img/feature5.jpg" alt="" />
+          </div>
+          <div class="feature_item">
+            <img class="feature_image" src="img/feature5.jpg" alt="" />
             <div class="feature_content">
               <p class="feature_cat">category</p>
               <p class="feature_text">
@@ -183,12 +177,9 @@
               </p>
               <p class="feature_date">XXXX.XX.XX</p>
             </div>
-
-          </article>
-
-        
-          <article class="feature_item">
-            <img src="img/feature6.jpg" alt="" />
+          </div>
+          <div class="feature_item">
+            <img class="feature_image" src="img/feature6.jpg" alt="" />
             <div class="feature_content">
               <p class="feature_cat">category</p>
               <p class="feature_text">
@@ -196,6 +187,7 @@
               </p>
               <p class="feature_date">XXXX.XX.XX</p>
             </div>
+          </div>
         </div>
       </section>
     </main>

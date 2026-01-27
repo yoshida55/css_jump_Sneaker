@@ -5,7 +5,7 @@
 /* 共通 */
 body {
   /* 定数 */
-  --side-header: 30rem; /* サイドバーの幅 */
+  --side_header: 30rem; /* サイドバーの幅 */
   font-family: "Meiryo", "メイリオ", sans-serif;
 }
 
@@ -21,6 +21,8 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  background-color: white;
+  height: 8rem;
   z-index: 10;
 }
 
@@ -28,7 +30,7 @@ body {
   position: fixed;
   top: 0.5rem;
   left: 2rem;
-  height: 8rem;
+  height: 4rem;
   z-index: 900; /* ロゴが他の要素より前に表示されるようにする */
 }
 
@@ -57,11 +59,11 @@ body {
 }
 
 /* ナビゲーションメニュー  */
-#g-nav {
+#g_nav {
   position: fixed;
   top: 0;
-  left: calc(var(--side-header) * -1);
-  width: var(--side-header);
+  left: calc(var(--side_header) * -1);
+  width: var(--side_header);
   height: 100vh;
   background-color: rgb(10, 9, 9);
   z-index: 1000; /* ナビゲーションが他の要素より前に表示されるようにする */
@@ -89,12 +91,12 @@ body {
   border-bottom: 0.1rem solid white;
 }
 
-.sns-list {
+.sns_list {
   margin-top: 4rem;
 }
 
 /* ナビと同様のスタイル */
-.sns-link {
+.sns_link {
   display: block;
   color: white;
   font-size: 1.8rem;
@@ -103,7 +105,7 @@ body {
   padding: 2rem 0 0 0;
 }
 
-#g-nav.open {
+#g_nav.open {
   left: 0; /* openクラスが付与されたら表示 */
 }
 
@@ -154,12 +156,13 @@ body {
    │ user: videoタグ, object-fit: cover       │          │
    └─────────────────────────────────────────┘ */
 .main_visual_area {
-  padding-top: 8rem;
+  margin-top: 8rem;
   width: 100%;
   height: 60rem;
   overflow: hidden;
   margin-bottom: 11rem;
   background-color: white;
+  border: 0.5rem solid red;
 }
 .background_video {
   width: 100%;
@@ -225,16 +228,22 @@ body {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
+/* フェードイン初期状態 */
 .feature_image {
   width: 38.5rem;
   height: 25.7rem;
   object-fit: cover;
+
+  /* フェードインの初期状態 */
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: all 1s;
 }
 
 .feature_cat {
   font-size: 1.2rem;
   color: #121212;
-  margin: 0rem 0rem 4rem 3.1rem;
+  margin: 2rem 0rem 4rem 3.1rem;
 }
 
 .feature_text {
@@ -247,7 +256,9 @@ body {
 .feature_date {
   font-size: 1.2rem;
   color: #888888;
-  margin: 0rem 0rem 4rem 3.1rem;
+  margin-bottom: 3.1rem;
+  text-align: right;
+  padding: 0 3.1rem 0 0;
 }
 
 /* ┌─────────────────────────────────────────┐
