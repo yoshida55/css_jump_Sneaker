@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Diary</title>
     <link rel="stylesheet" href="css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/work.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   </head>
 
   <!-- debug 命名規則！　必ずサジェストは確認！！ 文字の区切りは_ハイフンで！ -->
@@ -19,9 +25,9 @@
     <!-- フレックスで並べる（fixed） -->
     <header id="header_area">
       <!-- ロゴ -->
-      <div class="header_logo">
+      <h1 class="header_logo">
         <a href="#"><img src="img/logo.svg" alt="Sneakers Logo" /></a>
-      </div>
+      </h1>
 
       <!-- ハンバーガーメニュー -->
       <div id="hamburger-btn" class="hamburger_menu">
@@ -63,11 +69,136 @@
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <!-- ===============================================
+      2. Main Visual (背景動画)                │
+         user: videoタグ, object-fit: cover       │      
+       =============================================== -->
+      <section class="main_visual_area">
+        <video class="background_video" autoplay muted loop playsinline>
+          <source src="img/video.mp4" type="video/mp4" />
+        </video>
+      </section>
 
-    <div class="wrapper">
-      <main></main>
-    </div>
+      <!-- ===============================================
+        3. Pickup (無限スライダー)               │
+        Lib: Slick.js (centerMode: true)        │
+        9枚の画像（pickup1.jpg ～ pickup9.jpg）
+        自動スライド表示　画像には代替テキスト（alt属性）を設定
+       =============================================== -->
+      <section class="pickup_area">
+        <h2 class="pickup_title">PICK UP</h2>
+        <div class="slider">
+          <div><img src="img/pickup1.jpg" alt="Pickup Image 1" /></div>
+          <div><img src="img/pickup2.jpg" alt="Pickup Image 2" /></div>
+          <div><img src="img/pickup3.jpg" alt="Pickup Image 3" /></div>
+          <div><img src="img/pickup4.jpg" alt="Pickup Image 4" /></div>
+          <div><img src="img/pickup5.jpg" alt="Pickup Image 5" /></div>
+          <div><img src="img/pickup6.jpg" alt="Pickup Image 6" /></div>
+          <div><img src="img/pickup7.jpg" alt="Pickup Image 7" /></div>
+          <div><img src="img/pickup8.jpg" alt="Pickup Image 8" /></div>
+          <div><img src="img/pickup9.jpg" alt="Pickup Image 9" /></div>
+        </div>
+      </section>
+      <!-- ===============================================
+       4. Feature (記事一覧)                    │      │
+       Effect: Scroll FadeIn (opacity:0->1)    │
+      └─────────────────────────────────────────┘-->
+      <!-- 
+      ### FEATURE（#feature）
+- sectionタグで囲む
+- セクションタイトル「FEATURE」
+- **グリッドレイアウト**
+  - CSS Grid（`display: grid`）を使用
+  - `grid-template-columns` で画像の並べ方とサイズを指定
+  - タイル状に画像を配置（9枚の画像）
+- **各記事リスト**
+  - 画像（feature1.jpg ～ feature9.jpg）
+  - カテゴリ表示（"category"）
+  - 記事テキスト
+  - 日付（XXXX.XX.XX形式）
+- **画像フェード表示**
+  - スクロールイベントで画像がビューポートに入ったタイミングで表示
+  - opacityとtransformを使ってフェード表示
+  - ふわっと表示されるアニメーション効果
+
+   -->
+
+      <section class="feature_area">
+        <h2 class="feature_title">FEATURE</h2>
+        <div class="feature_grid">
+          <!-- 1枚目 -->
+          <article class="feature_item">
+            <img class="featur_image" src="img/feature1.jpg" alt="" />
+            <div class="feature_content">
+              <p class="feature_cat">category</p>
+              <p class="feature_text">
+                テキストテキストテキストテキストテキストテキストテキストテキスト
+              </p>
+              <p class="feature_date">XXXX.XX.XX</p>
+            </div>
+          </article>
+
+          <article class="feature_item">
+            <img src="img/feature2.jpg" alt="" />
+            <div class="feature_content">
+              <p class="feature_cat">category</p>
+              <p class="feature_text">
+                テキストテキストテキストテキストテキストテキストテキストテキスト
+              </p>
+              <p class="feature_date">XXXX.XX.XX</p>
+            </div>
+          </article>
+
+          <article class="feature_item">
+            <img src="img/feature3.jpg" alt="" />
+            <div class="feature_content">
+              <p class="feature_cat">category</p>
+              <p class="feature_text">
+                テキストテキストテキストテキストテキストテキストテキストテキスト
+              </p>
+              <p class="feature_date">XXXX.XX.XX</p>
+            </div>
+
+          </article>
+
+          <article class="feature_item">
+            <img src="img/feature4.jpg" alt="" />
+            <div class="feature_content">
+              <p class="feature_cat">category</p>
+              <p class="feature_text">
+                テキストテキストテキストテキストテキストテキストテキストテキスト
+              </p>
+              <p class="feature_date">XXXX.XX.XX</p>
+            </div>
+
+          </article>
+
+          <article class="feature_item">
+            <img src="img/feature5.jpg" alt="" />
+            <div class="feature_content">
+              <p class="feature_cat">category</p>
+              <p class="feature_text">
+                テキストテキストテキストテキストテキストテキストテキストテキスト
+              </p>
+              <p class="feature_date">XXXX.XX.XX</p>
+            </div>
+
+          </article>
+
+        
+          <article class="feature_item">
+            <img src="img/feature6.jpg" alt="" />
+            <div class="feature_content">
+              <p class="feature_cat">category</p>
+              <p class="feature_text">
+                テキストテキストテキストテキストテキストテキストテキストテキスト
+              </p>
+              <p class="feature_date">XXXX.XX.XX</p>
+            </div>
+        </div>
+      </section>
+    </main>
 
     <!-- javascript -->
     <script src="js/script.js"></script>

@@ -11,3 +11,26 @@ hamburgerBtn.addEventListener("click", function () {
   // ナビゲーションメニューを表示・非表示にする
   gNav.classList.toggle("open");
 });
+
+/*=================================================
+PICK UP スライダー (Slick)
+===================================================*/
+$(function () {
+  $(".slider").slick({
+    arrows: false,
+    autoplay: true,
+    adaptiveHeight: true,
+    centerMode: true,
+    centerPadding: "100px",
+    slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          centerPadding: "50px",
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
+});

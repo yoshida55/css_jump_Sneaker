@@ -1,4 +1,15 @@
 /* ┌─────────────────────────────────────────┐
+   │ 共通　　　　　　　                        │
+   └─────────────────────────────────────────┘ */
+
+/* 共通 */
+body {
+  /* 定数 */
+  --side-header: 30rem; /* サイドバーの幅 */
+  font-family: "Meiryo", "メイリオ", sans-serif;
+}
+
+/* ┌─────────────────────────────────────────┐
    │ 1. Header (固定ナビ + ハンバーガー)       │
    │ 固定配置(fixed), z-index:10             │
    │ SP時はハンバーガー(#mask, #navi: z-20)   │
@@ -10,16 +21,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  background-color: white;
   z-index: 10;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header_logo {
   position: fixed;
-  top: 1.5rem;
+  top: 0.5rem;
   left: 2rem;
+  height: 8rem;
   z-index: 900; /* ロゴが他の要素より前に表示されるようにする */
 }
 
@@ -51,8 +60,8 @@
 #g-nav {
   position: fixed;
   top: 0;
-  left: 0; /*debgu*/
-  width: 30rem;
+  left: calc(var(--side-header) * -1);
+  width: var(--side-header);
   height: 100vh;
   background-color: rgb(10, 9, 9);
   z-index: 1000; /* ナビゲーションが他の要素より前に表示されるようにする */
@@ -67,7 +76,7 @@
 
   /* 左に空間をあけて、そこから線と文字を始める */
   margin: 7rem 2rem 0 2rem;
-  padding: 3rem 0 0 0;
+  padding: 3rem 0 3rem 0;
 
   font-size: 1.8rem;
   font-weight: bold;
@@ -120,7 +129,6 @@
 }
 .bar:nth-child(3) {
   top: 3.6rem;
-  border: 0.5rem solid red;
 }
 
 /* ┌─────────────────────────────────────────┐
@@ -143,9 +151,21 @@
 
 /* ┌─────────────────────────────────────────┐
    │ 2. Main Visual (背景動画)                │
-   │ user: videoタグ, object-fit: cover       │
-   │ height: 100vh (画面いっぱい)             │
+   │ user: videoタグ, object-fit: cover       │          │
    └─────────────────────────────────────────┘ */
+.main_visual_area {
+  padding-top: 8rem;
+  width: 100%;
+  height: 60rem;
+  overflow: hidden;
+  margin-bottom: 11rem;
+  background-color: white;
+}
+.background_video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* ┌─────────────────────────────────────────┐
    │ 3. Pickup (無限スライダー)               │
@@ -153,17 +173,82 @@
    │ PC:3枚表示 / SP:1枚表示                  │
    └─────────────────────────────────────────┘ */
 
+.pickup_area {
+  width: 100%;
+  margin-bottom: 11rem;
+}
+
+.pickup_title {
+  text-align: center;
+  font-size: 3.6rem;
+  font-weight: bold;
+  margin-bottom: 4rem;
+}
+
+.slider img {
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
 /* ┌─────────────────────────────────────────┐
    │ 4. Feature (記事一覧)                    │
    │ Layout: CSS Grid (repeat, minmax)       │
    │ Effect: Scroll FadeIn (opacity:0->1)    │
    └─────────────────────────────────────────┘ */
+.feature_area {
+  padding: 0 2rem;
+}
+
+.feature_title {
+  text-align: center;
+  font-size: 3.6rem;
+  font-weight: bold;
+  margin-bottom: 4rem;
+}
 
 /* ┌─────────────────────────────────────────┐
    │ 5. Contact (お問い合わせ)                │
    │ Layout: Flex (PC) -> Column (SP)        
    │ Style: 背景黒(#333), 文字白              │
    └─────────────────────────────────────────┘ */
+.feature_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列固定 */
+  gap: 2.6rem;
+}
+
+/* 各記事のコンテナ 　画像　カテゴリ　説明　日付*/
+.feature_item {
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.feature_image {
+  width: 38.5rem;
+  height: 25.7rem;
+  object-fit: cover;
+}
+
+.feature_cat {
+  font-size: 1.2rem;
+  color: #121212;
+  margin: 0rem 0rem 4rem 3.1rem;
+}
+
+.feature_text {
+  font-size: 1.4rem;
+  color: #121212;
+  width: 31.2rem;
+  margin: 0rem 0rem 4rem 3.1rem;
+}
+
+.feature_date {
+  font-size: 1.2rem;
+  color: #888888;
+  margin: 0rem 0rem 4rem 3.1rem;
+}
 
 /* ┌─────────────────────────────────────────┐
    │ 6. Footer (フッター)                     │
