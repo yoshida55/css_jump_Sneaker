@@ -40,8 +40,9 @@ $(function () {
       {
         breakpoint: 768,
         settings: {
-          centerPadding: "0.6rem",
           slidesToShow: 1,
+          centerMode: true,
+          centerPadding: "5rem",
         },
       },
     ],
