@@ -356,6 +356,15 @@
    │ 6. Footer (フッター)                     │
    │ Copyrightのみ, 中央寄せ                  
    └─────────────────────────────────────────┘ */
+#footer_area {
+  width: 100%;
+  background-color: #121212;
+  text-align: center;
+}
+.footer_text {
+  color: white;
+  font-size: 1.4rem;
+}
 /* ┌─────────────────────────────────────────┐
    │ aaaaaaaaaa                        │
    └─────────────────────────────────────────┘ */
