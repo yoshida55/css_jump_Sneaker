@@ -13,6 +13,19 @@ hamburgerBtn.addEventListener("click", function () {
 });
 
 /*=================================================
+オーバーレイ（黒い背景）をクリックした際にメニューを閉じる
+===================================================*/
+
+mask.addEventListener("click", function () {
+  // オーバーレイを非表示にする
+  mask.classList.remove("open");
+  // ボタン自身の「×」を元に戻す
+  hamburgerBtn.classList.remove("open");
+  // ナビゲーションメニューを非表示にする
+  gNav.classList.remove("open");
+});
+
+/*=================================================
 PICK UP スライダー (Slick)
 ===================================================*/
 $(function () {
@@ -21,13 +34,13 @@ $(function () {
     autoplay: true,
     adaptiveHeight: true,
     centerMode: true,
-    centerPadding: "100px",
+    centerPadding: "0.6rem",
     slidesToShow: 3,
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          centerPadding: "50px",
+          centerPadding: "0.6rem",
           slidesToShow: 1,
         },
       },
@@ -48,7 +61,7 @@ $(window).scroll(function () {
     // 画面の高さ
     let windowHeight = $(window).height();
 
-    // 画像が画面下から200px入ったら表示
+    // 画像が画面下から20rem入ったら表示
     if (scroll > target - windowHeight + 200) {
       $(this).css("opacity", "1");
       $(this).css("transform", "translateY(0)");
