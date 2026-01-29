@@ -17,8 +17,6 @@
 
 /* ┌─────────────────────────────────────────┐
    │ 1. Header (固定ナビ + ハンバーガー)       │
-   │ 固定配置(fixed), z-index:10             │
-   │ SP時はハンバーガー(#mask, #navi: z-20)   │
    └─────────────────────────────────────────┘ */
 
 /* ヘッダー全体 */
@@ -34,7 +32,7 @@
 
 /* ロゴ */
 .header_logo {
-  position: fixed;
+  position: absolute;
   top: 0.5rem;
   left: 2rem;
   height: 4rem;
@@ -43,7 +41,7 @@
 
 /* ハンバーガーメニュー */
 .hamburger_menu {
-  position: fixed;
+  position: absolute;
   top: 1.5rem;
   right: 2rem;
   width: 4.5rem;
@@ -81,7 +79,6 @@
 .hamburger_menu.open .bar:nth-child(1) {
   transform: rotate(45deg);
   top: 2rem;
-  border: 0.5rem solid rgb(0, 47, 255);
 }
 .hamburger_menu.open .bar:nth-child(2) {
   opacity: 0;
@@ -163,7 +160,6 @@
 
 /* ┌─────────────────────────────────────────┐
    │ 2. Main Visual (背景動画)                │
-   │ user: videoタグ, object-fit: cover       │          │
    └─────────────────────────────────────────┘ */
 .main_visual_area {
   margin-top: 8rem;
@@ -181,8 +177,6 @@
 
 /* ┌─────────────────────────────────────────┐
    │ 3. Pickup (無限スライダー)               │
-   │ Lib: Slick.js (centerMode: true)        │
-   │ PC:3枚表示 / SP:1枚表示                  │
    └─────────────────────────────────────────┘ */
 
 .pickup_area {
@@ -199,7 +193,6 @@
 .slider {
   width: 100%;
   margin: 0 auto;
-  border: 0.5rem solid red;
 }
 
 .slider img {
@@ -210,8 +203,6 @@
 
 /* ┌─────────────────────────────────────────┐
    │ 4. Feature (記事一覧)                    │
-   │ Layout: CSS Grid (repeat, minmax)       │
-   │ Effect: Scroll FadeIn (opacity:0->1)    │
    └─────────────────────────────────────────┘ */
 
 .feature_title {
@@ -237,7 +228,7 @@
 
 /* フェードイン初期状態 */
 .feature_image {
-  width: 38.5rem;
+  width: 100%;
   height: 25.7rem;
   object-fit: cover;
 
@@ -256,7 +247,7 @@
 .feature_text {
   font-size: 1.4rem;
   color: #121212;
-  width: 31.2rem;
+  width: 100%;
   margin: 0rem 0rem 4rem 3.1rem;
 }
 
@@ -270,8 +261,6 @@
 
 /* ┌─────────────────────────────────────────┐
    │ 5. Contact (お問い合わせ)                │
-   │ Layout: Flex (PC) -> Column (SP)        
-   │ Style: 背景黒(#333), 文字白              │
    └─────────────────────────────────────────┘ */
 #contact_area {
   width: 100%;
@@ -292,7 +281,6 @@
   width: 100%;
 
   color: white;
-  margin-bottom: 11rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -305,13 +293,11 @@
 .contact_text {
   width: 100%;
   margin-bottom: 3.6rem;
-  border: 0.5rem solid red;
 }
 
 /* flexでフォームのコンテナ */
 .contact_form {
   width: 54.3rem;
-  border: 0.5rem solid red;
 }
 
 /* 入力エリア(名前・メール) */
@@ -357,10 +343,10 @@
 
 /* ┌─────────────────────────────────────────┐
    │ 6. Footer (フッター)                     │
-   │ Copyrightのみ, 中央寄せ                  
    └─────────────────────────────────────────┘ */
 #footer_area {
   width: 100%;
+  padding-top: 7rem;
   background-color: #121212;
   text-align: center;
 }
@@ -368,17 +354,10 @@
   color: white;
   font-size: 1.4rem;
 }
-/* ┌─────────────────────────────────────────┐
-   │ aaaaaaaaaa                        │
-   └─────────────────────────────────────────┘ */
-/* ┌─────────────────────────────────────────┐
-   │ aaaaaaaaaa
-   │  bbbbb                       
-   └─────────────────────────────────────────┘ */
 
 /* ┌─────────────────────────────────────────┐
-      │ レスポンシブ　                        │
-      └─────────────────────────────────────────┘ */
+   │ レスポンシブ　                           │
+   └─────────────────────────────────────────┘ */
 
 @media screen and (max-width: 767px) {
   :root {
@@ -395,8 +374,6 @@
 
   /* ┌─────────────────────────────────────────┐
    │ 1. Header (固定ナビ + ハンバーガー)       │
-   │ 固定配置(fixed), z-index:10             │
-   │ SP時はハンバーガー(#mask, #navi: z-20)   │
    └─────────────────────────────────────────┘ */
 
   /* ヘッダー全体 */
@@ -412,7 +389,7 @@
 
   /* ロゴ */
   .header_logo {
-    position: fixed;
+    position: absolute;
     top: 1.5rem;
     left: 1rem;
     width: 17.5rem;
@@ -422,7 +399,7 @@
 
   /* ハンバーガーメニュー */
   .hamburger_menu {
-    position: fixed;
+    position: absolute;
     top: 1.5rem;
     right: 2rem;
     width: 4.5rem;
@@ -460,11 +437,11 @@
   .hamburger_menu.open .bar:nth-child(1) {
     transform: rotate(45deg);
     top: 2rem;
-    border: 0.5rem solid rgb(0, 47, 255);
   }
   .hamburger_menu.open .bar:nth-child(2) {
     opacity: 0;
   }
+
   .hamburger_menu.open .bar:nth-child(3) {
     transform: rotate(-45deg);
     top: 2rem;
@@ -542,7 +519,6 @@
 
   /* ┌─────────────────────────────────────────┐
    │ 2. Main Visual (背景動画)                │
-   │ user: videoタグ, object-fit: cover       │          │
    └─────────────────────────────────────────┘ */
   .main_visual_area {
     margin-top: 8rem;
@@ -560,8 +536,6 @@
 
   /* ┌─────────────────────────────────────────┐
    │ 3. Pickup (無限スライダー)               │
-   │ Lib: Slick.js (centerMode: true)        │
-   │ PC:3枚表示 / SP:1枚表示                  │
    └─────────────────────────────────────────┘ */
 
   .pickup_area {
@@ -569,12 +543,15 @@
     margin-bottom: 11rem;
   }
 
+  /* ピックアップのタイトル */
   .pickup_title {
     text-align: center;
     font-size: 3.6rem;
     font-weight: bold;
     margin-bottom: 4rem;
   }
+
+  /* 親コンテナ スライダーの画像を束ねる* 100％にすることによって、３分の１になる*/
   .slider {
     width: 100%;
   }
@@ -587,8 +564,6 @@
 
   /* ┌─────────────────────────────────────────┐
    │ 4. Feature (記事一覧)                    │
-   │ Layout: CSS Grid (repeat, minmax)       │
-   │ Effect: Scroll FadeIn (opacity:0->1)    │
    └─────────────────────────────────────────┘ */
 
   .feature_title {
@@ -647,8 +622,6 @@
 
   /* ┌─────────────────────────────────────────┐
    │ 5. Contact (お問い合わせ)                │
-   │ Layout: Flex (PC) -> Column (SP)        
-   │ Style: 背景黒(#333), 文字白              │
    └─────────────────────────────────────────┘ */
   #contact_area {
     width: 100%;
@@ -661,7 +634,6 @@
     font-size: 3.6rem;
     font-weight: bold;
     color: white;
-    margin: 6rem 0 4rem 0;
   }
 
   /* flexでメッセージとフォームを横並びに */
@@ -669,7 +641,7 @@
     width: 100%;
 
     color: white;
-    margin-bottom: 11rem;
+
     flex-direction: column;
     display: flex;
     justify-content: space-between;

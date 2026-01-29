@@ -34,7 +34,7 @@ $(function () {
     autoplay: true,
     adaptiveHeight: true,
     centerMode: true,
-    centerPadding: "0.3rem",
+    centerPadding: "10rem",
     slidesToShow: 3,
     responsive: [
       {
