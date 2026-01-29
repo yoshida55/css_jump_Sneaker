@@ -15,14 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   </head>
 
-  <!-- debug 命名規則！　必ずサジェストは確認！！ 文字の区切りは_ハイフンで！ -->
   <body>
-    <!-- ===============================================
-     フレックスの左にロゴ、右にハンバーガーメニュー
-     fixed親ボックスでヘッダーを作成。子もfixedで固定。
-     （ちなみに逆にするとfixedが飛び出すのでBOXの配置がおかしい）
-     =============================================== -->
-    <!-- フレックスで並べる（fixed） -->
+    <!-- ヘッダー -->
     <header id="header_area">
       <!-- ロゴ -->
       <h1 class="header_logo">
@@ -70,21 +64,14 @@
     </header>
 
     <main>
-      <!-- ===============================================
-         Main Visual (背景動画)                │
-         user: videoタグ, object-fit: cover       │      
-       =============================================== -->
+      <!-- メインビジュアル -->
       <div class="main_visual_area">
         <video class="background_video" autoplay muted loop playsinline>
           <source src="img/video.mp4" type="video/mp4" />
         </video>
       </div>
-      <!-- ===============================================
-        Pickup (無限スライダー)               │
-        Lib: Slick.js (centerMode: true)        │
-        9枚の画像（pickup1.jpg ～ pickup9.jpg）
-        自動スライド表示　画像には代替テキスト（alt属性）を設定
-       =============================================== -->
+
+      <!-- ピックアップ -->
       <section class="pickup_area">
         <h2 class="pickup_title">PICK UP</h2>
         <div class="slider">
@@ -99,34 +86,11 @@
           <div><img src="img/pickup9.jpg" alt="Pickup Image 9" /></div>
         </div>
       </section>
-      <!-- ===============================================
-       Feature (記事一覧)                    │      │
-       Effect: Scroll FadeIn (opacity:0->1)    │
-      └─────────────────────────────────────────┘-->
-      <!-- 
-      ### FEATURE（#feature）
-- sectionタグで囲む
-- セクションタイトル「FEATURE」
-- **グリッドレイアウト**
-  - CSS Grid（`display: grid`）を使用
-  - `grid-template-columns` で画像の並べ方とサイズを指定
-  - タイル状に画像を配置（9枚の画像）
-- **各記事リスト**
-  - 画像（feature1.jpg ～ feature9.jpg）
-  - カテゴリ表示（"category"）
-  - 記事テキスト
-  - 日付（XXXX.XX.XX形式）
-- **画像フェード表示**
-  - スクロールイベントで画像がビューポートに入ったタイミングで表示
-  - opacityとtransformを使ってフェード表示
-  - ふわっと表示されるアニメーション効果
 
-   -->
-
+      <!-- 記事一覧 -->
       <section id="feature_area">
         <h2 class="feature_title">FEATURE</h2>
         <div class="feature_grid">
-          <!-- 1枚目 -->
           <div class="feature_item">
             <img class="feature_image" src="img/feature1.jpg" alt="" />
             <div class="feature_content">
@@ -220,11 +184,8 @@
           </div>
         </div>
       </section>
-      <!-- ===============================================
-       Contact (お問い合わせ)                │
-       Layout: Flex (PC) -> Column (SP)        
-       Style: 背景黒(#333), 文字白 
-       =============================================== -->
+
+      <!-- お問い合わせ -->
       <section id="contact_area">
         <h2 class="footer_title">CONTACT</h2>
         <div class="contact_container">
@@ -273,11 +234,9 @@
           </form>
         </div>
       </section>
-      <!-- ===============================================
-       6. Footer (フッター)                     │
-       Copyrightのみ, 中央寄せ                  
-       =============================================== -->
     </main>
+
+    <!-- フッター -->
     <footer id="footer_area">
       <p class="footer_text">© Sneakers</p>
     </footer>

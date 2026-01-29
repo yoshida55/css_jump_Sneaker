@@ -214,7 +214,7 @@
 
 .feature_grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3列固定 */
+  grid-template-columns: repeat(3, 1fr); /* 3列 */
   gap: 2.6rem;
 }
 
@@ -356,352 +356,56 @@
 }
 
 /* ┌─────────────────────────────────────────┐
-   │ レスポンシブ　                           │
+   │ レスポンシブ（SPのみ変更点）              │
    └─────────────────────────────────────────┘ */
 
 @media screen and (max-width: 767px) {
   :root {
-    /* 定数 */
-    --side_header: 20rem; /* サイドバーの幅 */
-    --content_side_padding: 1.6rem; /* コンテンツの左右の余白 */
-    font-family: "Meiryo", "メイリオ", sans-serif;
-  }
-
-  #feature_area,
-  #contact_area {
-    padding: 0 var(--content_side_padding);
-  }
-
-  /* ┌─────────────────────────────────────────┐
-   │ 1. Header (固定ナビ + ハンバーガー)       │
-   └─────────────────────────────────────────┘ */
-
-  /* ヘッダー全体 */
-  #header_area {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    height: 8rem;
-    z-index: 10;
+    --side_header: 20rem;
+    --content_side_padding: 1.6rem;
   }
 
   /* ロゴ */
   .header_logo {
-    position: absolute;
     top: 1.5rem;
     left: 1rem;
     width: 17.5rem;
-    height: 4rem;
-    z-index: 900; /* ロゴが他の要素より前に表示されるようにする */
   }
 
-  /* ハンバーガーメニュー */
-  .hamburger_menu {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    width: 4.5rem;
-    height: 4.5rem;
-    cursor: pointer;
-    z-index: 1000; /* メニューが他の要素より前に表示されるようにする */
-    background-color: white;
-  }
-
-  /* ハンバーガーメニューのバー */
-  .bar {
-    position: absolute;
-    transition: 0.3s;
-    left: 0;
-    height: 0.4rem;
-    width: 100%;
-    background: black;
-  }
-
-  .bar:nth-child(1) {
-    top: 0.8rem;
-  }
-  .bar:nth-child(2) {
-    top: 2.2rem;
-  }
-  .bar:nth-child(3) {
-    top: 3.6rem;
-  }
-
-  /* ┌─────────────────────────────────────────┐
-   │ ハンバーガーメニュークリック時の動作       │
-   └─────────────────────────────────────────┘ */
-
-  /* ハンバーガーメニューがおされたら、「×」にする */
-  .hamburger_menu.open .bar:nth-child(1) {
-    transform: rotate(45deg);
-    top: 2rem;
-  }
-  .hamburger_menu.open .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger_menu.open .bar:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 2rem;
-  }
-
-  /* オーバーレイ　ハンバーガーメニュークリック時に、背景を暗くする（スライドメニュ―以外かつハンバーガーは推せるようにする） */
-  #mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 900; /* オーバーレイが他の要素より前に表示されるようにする */
-    display: none; /* 初期状態では非表示 */
-    pointer-events: none; /* クリックですりぬけさせる。 */
-  }
-
-  /* ハンバーガーが押下されてオーバーレイが表示 */
-  #mask.open {
-    display: block; /* openクラスが付与されたら表示 */
-    pointer-events: auto; /* クリックを有効にする */
-  }
-
-  /* ナビゲーションメニュー  */
-  #g_nav {
-    position: fixed;
-    top: 0;
-    left: calc(var(--side_header) * -1);
-    width: var(--side_header);
-    height: 100vh;
-    background-color: rgb(10, 9, 9);
-    z-index: 1000; /* ナビゲーションが他の要素より前に表示されるようにする */
-    transition: left 0.3s ease;
-  }
-
-  /* 固定にナビゲーション内の　リンク（a）タグ */
-  .nav_link {
-    border-top: 0.1rem solid white;
-
-    display: block;
-
-    /* 左に空間をあけて、そこから線と文字を始める */
-    margin: 7rem 2rem 0 2rem;
-    padding: 3rem 0 3rem 0;
-
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-  }
-
-  /* 3行目のみ下線あり */
-  .nav_link:last-of-type {
-    border-bottom: 0.1rem solid white;
-  }
-
-  .sns_list {
-    margin-top: 4rem;
-  }
-
-  /* ナビと同様のスタイル */
-  .sns_link {
-    display: block;
-    color: white;
-    font-size: 1.8rem;
-
-    margin-left: 2rem;
-    padding: 2rem 0 0 0;
-  }
-
-  #g_nav.open {
-    left: 0; /* openクラスが付与されたら表示 */
-  }
-
-  /* ┌─────────────────────────────────────────┐
-   │ 2. Main Visual (背景動画)                │
-   └─────────────────────────────────────────┘ */
-  .main_visual_area {
-    margin-top: 8rem;
-    width: 100%;
-    height: 60rem;
-    overflow: hidden;
-    margin-bottom: 11rem;
-    background-color: white;
-  }
-  .background_video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* ┌─────────────────────────────────────────┐
-   │ 3. Pickup (無限スライダー)               │
-   └─────────────────────────────────────────┘ */
-
-  .pickup_area {
-    width: 100%;
-    margin-bottom: 11rem;
-  }
-
-  /* ピックアップのタイトル */
-  .pickup_title {
-    text-align: center;
-    font-size: 3.6rem;
-    font-weight: bold;
-    margin-bottom: 4rem;
-  }
-
-  /* 親コンテナ スライダーの画像を束ねる* 100％にすることによって、３分の１になる*/
-  .slider {
-    width: 100%;
-  }
-
+  /* スライダー画像 */
   .slider img {
-    width: 100%;
-    height: 24rem;
     padding: 0rem 2rem;
   }
 
-  /* ┌─────────────────────────────────────────┐
-   │ 4. Feature (記事一覧)                    │
-   └─────────────────────────────────────────┘ */
-
-  .feature_title {
-    text-align: center;
-    font-size: 3.6rem;
-    font-weight: bold;
-    margin-bottom: 4rem;
-  }
-
+  /* Feature 1列に */
   .feature_grid {
-    display: grid;
-    grid-template-columns: 1fr; /* 3列固定 */
-    gap: 2.6rem;
+    grid-template-columns: 1fr;
   }
 
-  /* 各記事のコンテナ 　画像　カテゴリ　説明　日付*/
-  .feature_item {
-    background-color: white;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-  }
-
-  /* フェードイン初期状態 */
   .feature_image {
-    width: 100%;
     height: 22.8rem;
-    object-fit: cover;
-
-    /* フェードインの初期状態 */
-    opacity: 0;
-    transform: translateY(2rem);
-    transition: all 1s;
   }
 
-  .feature_cat {
-    font-size: 1.2rem;
-    color: #121212;
-    margin: 2rem 0rem 4rem 3.1rem;
-  }
-
-  .feature_text {
-    font-size: 1.4rem;
-    color: #121212;
-    width: 100%;
-    margin: 0rem 0rem 4rem 3.1rem;
-  }
-
-  .feature_date {
-    font-size: 1.2rem;
-    color: #888888;
-    margin-bottom: 3.1rem;
-    text-align: right;
-    padding: 0 3.1rem 0 0;
-  }
-
-  /* ┌─────────────────────────────────────────┐
-   │ 5. Contact (お問い合わせ)                │
-   └─────────────────────────────────────────┘ */
-  #contact_area {
-    width: 100%;
-    background-color: #121212;
-  }
-
-  /* CONTACTのタイトル */
+  /* Contact タイトル */
   .footer_title {
-    text-align: center;
-    font-size: 3.6rem;
-    font-weight: bold;
-    color: white;
+    margin: 6rem 0 4rem 0;
   }
 
-  /* flexでメッセージとフォームを横並びに */
+  /* Contact 縦並びに */
   .contact_container {
-    width: 100%;
-
-    color: white;
-
     flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
   }
-  /* flexでメッセージのコンテナ */
+
   .contact_info {
-    width: 34.3rem;
-  }
-  /* flexでメッセージのメッセージエリア */
-  .contact_text {
     width: 100%;
-    margin-bottom: 3.6rem;
   }
 
-  /* flexでフォームのコンテナ */
   .contact_form {
-    width: 34.3rem;
-  }
-
-  /* 入力エリア(名前・メール) */
-  .contact_input {
     width: 100%;
-    padding: 1.5rem 0;
-    font-size: 1.6rem;
-    color: black;
-    background-color: #ffffff;
-    border: #707070 0.1rem solid;
-  }
-
-  /* 入力エリア(メッセージ) */
-  .contact_textarea {
-    width: 100%;
-    height: 6.8rem;
-    font-size: 1.6rem;
-    color: black;
-    background-color: #ffffff;
-    border: #707070 0.1rem solid;
-    resize: none; /* ユーザーによるサイズ変更を禁止 */
-  }
-
-  .contact_label {
-    display: block;
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 1.6rem;
   }
 
   .contact_button {
-    display: block;
     width: 100%;
-
-    margin-top: 3.2rem;
     padding: 1.5rem 0;
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: white;
-    background-color: black;
-    border: 0.2rem solid white;
-    border-radius: 0.4rem;
-    cursor: pointer;
   }
 }
